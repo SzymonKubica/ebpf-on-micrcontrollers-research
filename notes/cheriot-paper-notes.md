@@ -57,42 +57,46 @@ Important Quotes:
 
 *"Provide abstractions that can be surfaced directly in C-like languages, for
 example protecting objects, not pages"*
-    -> Important, the aim is to provide high level language abstractions on top
-    of the proposed architecture to make it more applicable to the real world
-    applications.
+
+-> Important, the aim is to provide high level language abstractions on top
+of the proposed architecture to make it more applicable to the real world
+applications.
 
 "Avoid requiring any structures in hardware that would in- troduce
 nondeterministic latency"
-    -> This is due to the real-time requirements of the embedded devices, for
-    some applications we need to ensure that the time it takes to execute a
-    given instruction is deterministic and doesn't vary because of complicated
-    architectural decisions.
 
-"Avoid requiring any structures in hardware that would sig- nificantly increase
-the area or power consumption"
-    -> Again, one of the characteristic features of embedded devices is that
-    that their resources are limited, therefore a significant overhead
-    introduced by the solution would impact the applicability of the design.
-    (Examples of power-intensive solutions are associative lookups in an MPU
-    or TLB)
+-> This is due to the real-time requirements of the embedded devices, for
+some applications we need to ensure that the time it takes to execute a
+given instruction is deterministic and doesn't vary because of complicated
+architectural decisions.
 
-"A real-time system is one in which the latency of operations is bounded and
-can be reasoned about"
-    -> Important definition of real-timeness. It doesn't directly imply that the
-    latency of operations must be low, it says that whatever we do needs to be
-    of fixed time and the time it takes to execute a given instruction shouldn't
-    depend on the state of the cache or TLB. CHERIoT ensures that none of the
-    hardware operations have nondeterministic latency, however some operations
-    might have a small variation in the cycle time.
+*"Avoid requiring any structures in hardware that would sig- nificantly increase
+the area or power consumption"*
 
-"In today’s systems, this compartmentalization is often achieved by providing
+-> Again, one of the characteristic features of embedded devices is that
+that their resources are limited, therefore a significant overhead
+introduced by the solution would impact the applicability of the design.
+(Examples of power-intensive solutions are associative lookups in an MPU
+or TLB)
+
+*"A real-time system is one in which the latency of operations is bounded and
+can be reasoned about"*
+
+-> Important definition of real-timeness. It doesn't directly imply that the
+latency of operations must be low, it says that whatever we do needs to be
+of fixed time and the time it takes to execute a given instruction shouldn't
+depend on the state of the cache or TLB. CHERIoT ensures that none of the
+hardware operations have nondeterministic latency, however some operations
+might have a small variation in the cycle time.
+
+*"In today’s systems, this compartmentalization is often achieved by providing
 multiple microcontrollers, each with separate SRAM, which both adds to the cost
-and limits flexibility"
-    -> Indicates the current way of ensuring compartmentlization right now, the
-    main limitation is the cost of deploying multiple devices and the lack of
-    flexibility i.e. adding a new compartment requires modifying the physical
-    setup of the deployed system (adding a new microcontroller).
+and limits flexibility"*
 
+-> Indicates the current way of ensuring compartmentlization right now, the
+main limitation is the cost of deploying multiple devices and the lack of
+flexibility i.e. adding a new compartment requires modifying the physical
+setup of the deployed system (adding a new microcontroller).
 
 Overview of compartments
 
