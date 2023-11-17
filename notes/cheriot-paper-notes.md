@@ -55,8 +55,8 @@ to support the claimed contributions of the paper.
 
 Important Quotes:
 
-"Provide abstractions that can be surfaced directly in C-like languages, for
-example protecting objects, not pages"
+*"Provide abstractions that can be surfaced directly in C-like languages, for
+example protecting objects, not pages"*
     -> Important, the aim is to provide high level language abstractions on top
     of the proposed architecture to make it more applicable to the real world
     applications.
