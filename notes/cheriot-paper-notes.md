@@ -62,8 +62,8 @@ example protecting objects, not pages"*
 of the proposed architecture to make it more applicable to the real world
 applications.
 
-"Avoid requiring any structures in hardware that would in- troduce
-nondeterministic latency"
+*"Avoid requiring any structures in hardware that would in- troduce
+nondeterministic latency"*
 
 -> This is due to the real-time requirements of the embedded devices, for
 some applications we need to ensure that the time it takes to execute a
@@ -98,6 +98,22 @@ main limitation is the cost of deploying multiple devices and the lack of
 flexibility i.e. adding a new compartment requires modifying the physical
 setup of the deployed system (adding a new microcontroller).
 
+*"In an embedded system, partic- ularly one without atomic operations (optional
+in RISC-V), software often needs to disable interrupts for short periods"*
+
+-> Important motivation for disabling interrupts, useful context for fyp.
+
+*"CHERIoT addresses these inefficiencies, arriving at an encoding (fig. 1) that
+optimizes for the typical embedded programming model."*
+
+-> CHERIoT ensures that the memory overhead of having capabilities ingrained
+into pointers is minimised.
+
+*"Instead, our CPU pipeline offers hardware-assisted temporal memory safety
+with a stronger security model and without need of an MMU."*
+
+-> Understand what is actually meant by the temporal memory safety.
+
 Overview of compartments
 
 -> compartment = code + data (some of which is private)
@@ -113,10 +129,10 @@ This introduces a precondition that the owners of separate compartments need to
 trust the provider of the compartmentalized system that whatever they are doing
 ensures proper separation and is bug-free.
 
-In case of CHERIoT, the TCB includes: microarchitecture, hardware offloads and softare.
-The microarchitecture enforces local invariants (guarantees true on the level of
-a single instruction), whereas the software ensures that global invariants are
-satisfied.
+In case of CHERIoT, the TCB includes: microarchitecture, hardware offloads and
+software. The microarchitecture enforces local invariants (guarantees true on
+the level of a single instruction), whereas the software ensures that global
+invariants are satisfied.
 
 ## Design
 
@@ -127,5 +143,26 @@ CHERIoT. Things removed:
 - ```cinvoke``` instruction and permission
 - capabilities may not simultaneously permit execution and stores (i.e. you
   can't modify the code while executing it.
+
+Bounds encoding -> the authors propose a modified design which sacrifices some
+of the compatibility in exchange for increased precision and decreased
+complexity
+
+## Tricky terms
+
+**sealed** and **unsealed** entries
+
+*"More generally, CHERI provides a ‘sealing’ mechanism for constructing opaque
+capabilities, which may later be ‘unsealed’; again, both actions are authorized
+by capabilities"*
+
+-> not quite sure what is meant by sealing and unsealing
+
+**jump-and-link** instruction -> what is this?
+
+**Memory fragmentation** how does one calculate it?
+
+## Performance evaluation
+
 
 
