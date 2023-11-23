@@ -14,7 +14,7 @@ for the eBPF on microcontrollers project.
 
 - CHERIoT: Complete Memory Safety for Embedded Devices [source](https://cheriot.org/papers/2023-micro-cheriot-uarch.pdf)
   - [x] [Paper](./paper-pdfs/cheriot-paper.pdf) read
-  - [ ] [Notes](./notes/cheriot-paper-notes.md) assembled
+  - [x] [Notes](./notes/cheriot-paper-review.pdf) assembled
 
 - Taking 5G RAN Analytics and Control to a New Level [source](https://www.microsoft.com/en-us/research/uploads/prod/2022/12/mobicom23-final9.pdf)
   - [x] [Paper](./paper-pdfs/mobicom23-final9.pdf) read
