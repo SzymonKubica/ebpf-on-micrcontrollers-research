@@ -6,3 +6,4 @@ for the eBPF on microcontrollers project.
 - [Background research](./background-research.md)
 - [Target microcontroller selection](./microcontrollers.md)
 - [Target RTOS selection](./rtos.md)
+- [Explorations](./explorations/main.md)
