@@ -2,39 +2,66 @@
 
 [Main Page](../README.md)
 
-This example shows how to run some demo programs on esp32 using the library wrapping
-around the esp-idf functions
-[here](https://github.com/ivmarkov/rust-esp32-std-demo/tree/main)
+Table of Contents
+1. [Sources](./rust-on-esp.md#sources)
+1. [Seting Up](./rust-on-esp.md#setting-up)
+1. [Issues](./rust-on-esp.md#issues)
+2. [Configuring rust-analyzer for neovim](./rust-on-esp.md#configuring-rust-analyzer-for-neovim)
+3. [Configuring rust-analyzer for vscode](./rust-on-esp.md#configuring-rust-analyzer-for-vscode)
 
-The esp rust [book](https://esp-rs.github.io/book/introduction.html) gives an overview of what is currently possible.
+## Sources
 
-Issues
+-  The esp rust [book](https://esp-rs.github.io/book/introduction.html)
+   - gives a great overview of the platform and supported features.
+- esp32 demo programs [here](https://github.com/ivmarkov/rust-esp32-std-demo/tree/main)
+   - This example shows how to run some demo programs on esp32 using the library wrapping
+    around the esp-idf functions. It looks like most of the important parts of the esp-idf
+    API are exposed by the rust library
 
-- rust-analyzer in neovim seems to use the target toolchain as opposed to the default
-  system one, because of this, the rust LSP fails to start, as esp toolchain is
-  a custom toolchain which doesn't support components. A possible workaround
-  is to symlink the rust analyzer of the target toolchain to the host toolchain.
+
+## Setting Up
+I have created an example repo containing a cut down version of rbpf. It was
+possible to flash it onto an esp32 and without issues. You can find it [here](https://github.com/SzymonKubica/rbpf-on-esp-idf)
+
+Prerequisites:
+- See [here](https://github.com/esp-rs/esp-idf-template#prerequisites) for the
+  list of required things to use the cargo template for esp-idf.
+- First, you need to install esp-idf as explained [here](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/linux-macos-setup.html#step-1-install-prerequisites)
+- Second, follow the instructions [here](https://esp-rs.github.io/book/installation/riscv-and-xtensa.html) to install espup to setup the dev environment for the Xtensa targets.
+
+Once you have everythign correctly installed, you should be able to clone the above
+repo, build it and flash onto the esp32. To flash and monitor the output of the system, use the following command:
+```
+cargo espflash flash --monitor
+```
+It should correctly figure out which port it is supposed to target.
+Once the code is loaded you can attach to it using
+```
+espflash monitor
+```
+
+
+## Issues
+
+- [FIXED] (see configuration instructions below) rust-analyzer in neovim uses
+  the target toolchain as opposed to the default system one, because of this,
+  the rust LSP fails to start, as esp toolchain is a custom toolchain which
+  doesn't support components. A possible workaround is to symlink the rust
+  analyzer of the target toolchain to the host toolchain.
   ```
   ln -sf ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/rust-analyzer ~/.rustup/toolchains/esp/bin/rust-analyzer
 
   ```
-  - tried that, unfortunately it didn't work.
-  - It seems like there are some issues with using the custom toolchain when it
-    comes to using tools like rust-analyzer
-
-- I tried flashing the board using the rust tools provided and it seems a bit
+- [FIXED] I tried flashing the board using the rust tools provided and it seems a bit
   unreliable. Although the idf.py tool provided by esp-idf flashes just fine, the
   espflash which rust provides fails to interrupt the device and says
   'device or resource busy'.
-
-- The main limitation of running rust on esp32 is the limited support for the esp
-  toolchain, the compilation works fine, however the code analysis is a bit lacking.
 
 - Apparently the vscode extension [works](https://rust-analyzer.github.io/manual.html#toolchain) if configured properly
 - Someone managed to get it to work partially on Neovim [here](https://github.com/rust-lang/rust-analyzer/issues/15828)
 
 
-## How to cofigure rust-analyzer on vscode:
+## Configuring rust-analyzer for vscode
 
 1. Download the following extensions:
    - rust
@@ -60,10 +87,7 @@ The above configuration instructs rust-analyzer to use the stable toolchain to
 analyse the project. Some features such as proc macro expansion don't work, however
 I was able to get jump to def and autocompletions to work in vscode.
 
-## How to configure rust-analyzer on neovim
-
-The below steps were tested on my machine and so far the go-to-definition and
-documentation on hower functionalities work fine.
+## Configuring rust-analyzer for neovim
 
 1. Use your package manager to get the simrat39/rust-tools.nvim plugin
 2. Use the following configuration:
@@ -110,6 +134,12 @@ Adapting your path appropriately so that the esp toolchain rust-analyzer points
 to the one from the stable toolchain.
 
 5. After that the lsp should work without any issues.
+
+The above steps were tested on my machine and so far the go-to-definition and
+documentation on hower functionalities work fine. There are some limitations
+with the expansion proc macros (see
+[here](https://www.reddit.com/r/rust/comments/13d2tls/rustanalyzer_and_toolchain_for_esp/)).
+I'm not sure if that is going to be a blocker moving forward.
 
 
 
