@@ -29,11 +29,11 @@
   - [ ] [Notes](./notes/microsecond-scale-tail-latency-paper-notes.md) assembled
 
 - Enabling BPF Runtime policies for better BPF management [source](https://people.cs.vt.edu/djwillia/papers/ebpf23-runtime.pdf)
-  - [ ] [Paper](./paper-pdfs/ebpf23-runtime.pdf) read
+  - [x] [Paper](./paper-pdfs/ebpf23-runtime.pdf) read
   - [ ] [Notes](./notes/BPF-runtime-policies-paper-notes.md) assembled
 
 - Enabling eBPF on Embedded Systems Through Decoupled Verification [source](https://people.cs.vt.edu/djwillia/papers/ebpf23-decoupled.pdf)
-  - [ ] [Paper](./paper-pdfs) read
+  - [x] [Paper](./paper-pdfs/ebpf23-decoupled.pdf) read
   - [ ] [Notes](./notes/eBPF-embedded-decoupled-verification-paper-notes.md) assembled
 
 
