@@ -30,7 +30,7 @@
 
 - Enabling BPF Runtime policies for better BPF management [source](https://people.cs.vt.edu/djwillia/papers/ebpf23-runtime.pdf)
   - [x] [Paper](./paper-pdfs/ebpf23-runtime.pdf) read
-  - [ ] [Notes](./notes/BPF-runtime-policies-paper-notes.md) assembled
+  - [x] [Notes](./notes/BPF-runtime-policies-paper-notes.md) assembled
 
 - Enabling eBPF on Embedded Systems Through Decoupled Verification [source](https://people.cs.vt.edu/djwillia/papers/ebpf23-decoupled.pdf)
   - [x] [Paper](./paper-pdfs/ebpf23-decoupled.pdf) read
