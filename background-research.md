@@ -21,8 +21,8 @@
   - [ ] [Notes](./notes/5g-ran-analytics-control-paper-notes.md) assembled
 
 - The K2 Architecture for Trustworthy Hardware Security Modules [source](https://dl.acm.org/doi/pdf/10.1145/3625275.3625402)
-  - [ ] [Paper](./paper-pdfs/k2-architecture.pdf) read
-  - [ ] [Notes](./notes/k2-architecture-paper-notes.md) assembled
+  - [x] [Paper](./paper-pdfs/k2-architecture.pdf) read
+  - [x] [Notes](./notes/k2-architecture-paper-notes.md) assembled
 
 - Achieving Microsecond-Scale Tail Latency Efficiently with Approximate Optimal Scheduling [source](https://dl.acm.org/doi/10.1145/3600006.3613136)
   - [ ] [Paper](./paper-pdfs/microsecond-scale-tail-latency.pdf) read
