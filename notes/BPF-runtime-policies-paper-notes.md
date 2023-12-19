@@ -8,7 +8,7 @@ apart from some guarantee of eventual termination of the loaded eBPF programs,
 there is a lack of insight into the runtime characteristics of the eBPF
 programs while they are being executed.
 
-## What problem does it address?
+## What problem is being addressed?
 
 Problem: operators of the systems instrumented with eBPF programs have no
 visibility into whether the performance of their program is affected by the
@@ -54,7 +54,7 @@ able to give us a lot of static information because of how strict it is. For
 our application we might go for a much simpler verifier in which case it might
 not be possible to statically determine the runtime of all possible branches.
 
-## Key insights:
+## Key insights
 
 - the broad range that the estimate covers is due to the IO-bound nature of
   some of the helper functions, the paper claims (page 1, column 2, par 4).
