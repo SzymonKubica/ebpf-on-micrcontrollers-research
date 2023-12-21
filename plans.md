@@ -2,6 +2,15 @@
 
 ## Problem description:
 
+Aim: Being able to load custom code into a microcontroller without the need
+for re-flashing it. Similarly to how eBPF can be used to extend the linux kernel.
+
+Given that microcontrollers become increasingly connected (see CHERIoT paper for
+good rationale) we if we want to execute code written by someone else we need to
+ensure that it doesn't crash the whole microcontroller -> eBPF VM.
+
+The decoupled architecture can be used to verify and possibly jit-compile the code
+before it gets signed and sent to the microcontroller.
 
 ## Already done
 - initial literature overview
