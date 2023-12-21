@@ -85,8 +85,6 @@ fn fletcher32_native() -> u32 {
     return checksum;
 }
 ```
-Average native: 415.00ns, Average VM: 1.49µs
-
 ## Results:
 
 | Environment | Native   | VM      |
