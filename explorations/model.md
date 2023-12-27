@@ -41,10 +41,28 @@ Proposed roadmap
    - once the above jitting works, try to decouple it so that it happens together with the
      verification stage.
 
+   - Important concern about decoupling the JIT and the verification according to the
+     in decoupled paper.
+     *Currently verification and JIT are tightly coupled inside the
+     kernel. For example, the maximum allowed number of tail calls
+     in a BPF program is 33 [5], but we found that this check
+     occurs inside the JIT code, rather than the verifier. The
+     verifier and JIT work together to ensure BPF program safety,
+     so it is nontrivial to separate them. We decided the solution
+     to this is to decouple the JIT along with the verifier. 1*
+
 2. MVP:
   - Infra for the verifier service with signatures (as described in decoupled ebpf paper)
   - Infra for loading the verified bytecode together with the signature into the microcontroller
     directly over the network (and have it run in the rbpf/ubpf vm)
   - Performance evaluation of the solution
+
+
+3. Current limiations of the existing work:
+
+- rBPF doesn't implement tail calls (one eBPF program calling the other)
+- jit compilation for other architectures (ubpf does it for ARM, in case of rBPF ARM is missing and we would probably need to add Xtensa as well).
+- support for arrays and BPF maps
+
 
 
