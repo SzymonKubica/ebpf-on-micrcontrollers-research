@@ -36,4 +36,11 @@
   - [x] [Paper](./paper-pdfs/ebpf23-decoupled.pdf) read
   - [ ] [Notes](./notes/eBPF-embedded-decoupled-verification-paper-notes.md) assembled
 
+- Scripting Over-The-Air: Towards Containers on Low-end Devices in the Internet of Things [source](https://ieeexplore.ieee.org/document/8480277)
+  - [ ] [Paper](./paper-pdfs/scripting-over-the-air-containers-on-IOT.pdf) read
+  - [ ] [Notes](./notes/scripting-over-the-air.md) assembled
+
+- Operating Systems for Low-End Devices in the Internet of Things: A Survey [source](https://ieeexplore.ieee.org/document/7347318)
+  - [ ] [Paper](./paper-pdfs/os-for-low-end-devices-requirement-survey.pdf) read
+  - [ ] [Notes](./notes/os-for-low-end-devices.md) assembled
 
