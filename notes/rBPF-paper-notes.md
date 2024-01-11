@@ -1,8 +1,6 @@
 # Minimal Virtual Machines on IoT Microcontrollers: The Case of Berkeley Packet Filters with rBPF
 
 ## In general terms, what is the paper about?
-
-
 ## What problem is being addressed?
 ## Questions arising after reading the abstract
 ## In what way is it relevant for the project?
